@@ -7,9 +7,9 @@ class Tree:
 def less_than_or_greater(root, insert):
     if root == None:
         root = Tree(insert)
-    if root.value < insert:
-        root.left = less_than_or_greater(root.left, insert)
     if root.value > insert:
+        root.left = less_than_or_greater(root.left, insert)
+    if root.value < insert:
         root.right = less_than_or_greater(root.right, insert)
     return root
 
@@ -40,12 +40,12 @@ def post_order_traversal(root):
 
     print(root.value)
 
-get_root_node = int(input("choose a number"))
+get_root_node = int(input("choose a number "))
 root_node = less_than_or_greater(None, get_root_node)
 ask_node_1 = int(input("choose a number "))
 node1 = less_than_or_greater(root_node, ask_node_1)
-#ask_node_2 = int(input("choose another number "))
-#node2 = less_than_or_greater(root_node, ask_node_2)
+ask_node_2 = int(input("choose another number "))
+node2 = less_than_or_greater(root_node, ask_node_2)
 # print(root_node.value)
 # print(node1.value)
 ### printing in in order traversal
